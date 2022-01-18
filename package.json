@@ -1,8 +1,10 @@
 {
   "name": "everyday-app",
   "version": "0.0.1",
+  "main": "src/main/main.js",
   "scripts": {
     "dev": "vite --port 8000",
+    "electron:dev": "electron .",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "commit": "git cz"
@@ -14,6 +16,7 @@
     "@vitejs/plugin-vue": "^2.0.0",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
+    "electron": "16.0.6",
     "typescript": "^4.4.4",
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
