@@ -1,0 +1,14 @@
+# Reference:
+# https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+# Default state for all rules
+default: true
+
+# MD013/line-length - Line length
+MD013: false
+
+# MD014/commands-show-output - Dollar signs used before commands without showing output
+MD014: false
+
+# MD033/no-inline-html - Inline HTML
+MD033: false
