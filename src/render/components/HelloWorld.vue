@@ -8,8 +8,11 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-
-  <p>
+  <!-- 此处放置文字 -->
+  <p >正在加载今日诗词....</p>
+  <!-- 此处插入图片 -->
+  <img class="box" alt="图片" src="https://unsplash.it/1600/900?random" >
+  <!-- <p>
     Recommended IDE setup:
     <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
     +
@@ -30,7 +33,7 @@ const count = ref(0)
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  </p> -->
 </template>
 
 <style scoped>
@@ -48,5 +51,16 @@ code {
   padding: 2px 4px;
   border-radius: 4px;
   color: #304455;
+}
+/* 更改文字和图片属性 */
+p {
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+.box {
+width: 60%;
+background: white;
+border-radius: .8em;
 }
 </style>
