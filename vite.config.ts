@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     port: 8000,
     proxy: {
-      '/tianapi': {
+      '/api': {
         target: 'http://api.tianapi.com',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, '')
