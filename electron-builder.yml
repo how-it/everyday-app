@@ -12,6 +12,6 @@ nsis:
   createStartMenuShortcut: true # 创建开始菜单图标
 
 win:
-  icon: "public/icon.ico"
+  icon: "public/favicon.ico"
   target:
     - { target: "nsis" } # 打包成安装包
