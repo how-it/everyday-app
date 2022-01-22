@@ -1,6 +1,9 @@
 {
   "name": "everyday-app",
   "version": "0.0.1",
+  "author": "how-it",
+  "description": "A picture and a word everyday.",
+  "license": "GPL-3.0",
   "main": "src/main/main.js",
   "scripts": {
     "dev": "vite --port 8000",
