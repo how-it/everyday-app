@@ -6,9 +6,12 @@
   "license": "GPL-3.0",
   "main": "src/main/main.js",
   "scripts": {
-    "dev": "vite --port 8000",
+    "dev": "concurrently \"npm run render:dev\" \"npm run electron:dev\"",
+    "build": "npm run render:build && npm run electron:build",
+    "render:dev": "vite",
+    "render:build": "vue-tsc --noEmit && vite build",
     "electron:dev": "electron .",
-    "build": "vue-tsc --noEmit && vite build",
+    "electron:build": "electron-builder --win",
     "preview": "vite preview",
     "commit": "git cz"
   },
@@ -18,6 +21,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
     "commitizen": "^4.2.4",
+    "concurrently": "^7.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "electron": "16.0.6",
     "typescript": "^4.4.4",
