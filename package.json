@@ -24,6 +24,7 @@
     "concurrently": "^7.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "electron": "16.0.6",
+    "electron-builder": "^22.14.5",
     "typescript": "^4.4.4",
     "vite": "^2.7.2",
     "vue-tsc": "^0.29.8"
