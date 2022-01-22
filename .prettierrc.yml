@@ -1,0 +1,4 @@
+semi: false
+singleQuote: true
+trailingComma: "none" # <es5|none|all>
+arrowParens: "avoid" # <always|avoid>
