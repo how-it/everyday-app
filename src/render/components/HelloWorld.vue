@@ -1,66 +1,84 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { one } from '../api/tianapi'
 
-defineProps<{ msg: string }>()
+const title = ref('欢迎来到每日一句')
+const word = ref('')
+const wordfrom = ref('')
+const imgurl = ref('')
+const loading = ref(true)
 
-const count = ref(0)
+onMounted(() => {
+  one().then(response => {
+    console.log(response.data)
+    const { newslist } = response.data
+    word.value = newslist[0].word
+    wordfrom.value = newslist[0].wordfrom
+    imgurl.value = newslist[0].imgurl
+    preload()
+  })
+})
+
+const preload = () => {
+  let image = new Image()
+  image.src = imgurl.value
+  image.onload = () => {
+    loading.value = false
+  }
+  image.onerror = () => {
+    loading.value = false
+  }
+}
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-  <!-- 此处放置文字 -->
-  <p >正在加载今日诗词....</p>
-  <!-- 此处插入图片 -->
-  <img class="box" alt="图片" src="https://unsplash.it/1600/900?random" >
-  <!-- <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>See <code>README.md</code> for more information.</p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p> -->
+  <h1>{{ title }}</h1>
+  <div class="img-text-container">
+    <div v-if="loading" class="loader"></div>
+    <img v-else alt="picture" :src="imgurl" />
+    <p class="word">{{ word }}</p>
+    <p class="word wordfrom" v-if="wordfrom">——{{ wordfrom }}</p>
+  </div>
 </template>
 
-<style scoped>
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+@import '../styles/loading.scss';
+
+h1 {
+  text-align: center;
 }
 
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
+.img-text-container {
+  margin: auto;
+  width: 70%;
 
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
-/* 更改文字和图片属性 */
-p {
+  img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.35);
+    transition: 0.5s;
+
+    &:hover {
+      box-shadow: 0 25px 25px rgba(0, 0, 0, 0.55);
+    }
+  }
+
+  .word {
+    padding: 0 10px;
+    font-size: 20px;
     font-style: italic;
     font-weight: bold;
     text-align: center;
-}
-.box {
-width: 60%;
-background: white;
-border-radius: .8em;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+
+    &:hover {
+      text-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  .wordfrom {
+    text-align: right;
+  }
 }
 </style>
