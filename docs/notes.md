@@ -38,3 +38,21 @@ vite 是一个基于 Vue3 单文件组件的非打包开发服务器，服务器
 
 **Terminal**集成windows上的powershell，cmd，windows linux子系统。
 
+
+
+## 将代码上传到分支操作
+
+一，[创建分支](git_use.md)
+
+二，提交改动文件
+
+```
+git add <文件名>
+
+npm run commit
+
+git push origin dev:dev
+
+
+```
+
