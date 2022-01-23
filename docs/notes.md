@@ -48,9 +48,9 @@ vite 是一个基于 Vue3 单文件组件的非打包开发服务器，服务器
 
 ```
 git add <文件名>
-
+# 根据要求输入commit信息
 npm run commit
-
+# 上传到远程分支
 git push origin dev:dev
 
 
