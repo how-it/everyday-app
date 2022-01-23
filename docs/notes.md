@@ -37,3 +37,17 @@ vite 是一个基于 Vue3 单文件组件的非打包开发服务器，服务器
 **Powershell**兼容原来的cmd使用的命令格式，是cmd的升级版，类似于Linux的bash，都是基于壳程序的shell。
 
 **Terminal**集成windows上的powershell，cmd，windows linux子系统。
+
+## 将代码上传到分支操作
+
+1. [创建分支](git_use.md)
+
+2. 提交改动文件
+
+   ```sh
+   git add <文件名>
+   # 根据要求输入commit信息
+   npm run commit
+   # 上传到远程分支
+   git push origin dev:dev
+   ```
