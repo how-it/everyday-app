@@ -18,8 +18,8 @@ NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署�
 
 ### 使用NPM安装模块
 
-```
-npm install <Module Name>
+```sh
+$ npm install <Module Name>
 ```
 
 ## 什么是NVM
@@ -37,4 +37,3 @@ vite 是一个基于 Vue3 单文件组件的非打包开发服务器，服务器
 **Powershell**兼容原来的cmd使用的命令格式，是cmd的升级版，类似于Linux的bash，都是基于壳程序的shell。
 
 **Terminal**集成windows上的powershell，cmd，windows linux子系统。
-
